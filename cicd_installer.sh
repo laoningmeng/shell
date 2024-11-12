@@ -60,7 +60,7 @@ if ! command -v maven &> /dev/null; then
     tar -zxvf /usr/local/src/apache-maven-3.9.9-bin.tar.gz  -C /usr/local/src
     mv /usr/local/src/apache-maven-3.9.9 /usr/local/maven
     cat <<EOL >> /etc/profile
-export PATH=$PATH:/usr/local/maven/bin
+export PATH=\$PATH:/usr/local/maven/bin
 EOL
     source /etc/profile
 else
@@ -111,7 +111,7 @@ if ! command -v nginx &> /dev/null; then
     make 
     make install
     cat <<EOL >> /etc/profile
-export PATH=$PATH:/usr/local/nginx/sbin
+export PATH=\$PATH:/usr/local/nginx/sbin
 EOL
   source /etc/profile
   mkdir /usr/local/nginx/conf/servers
