@@ -53,7 +53,7 @@ echo "#########################################"
 echo "#         2.安装maven                    #"
 echo "#########################################"
 
-if ! command -v maven &> /dev/null; then
+if ! command -v mvn &> /dev/null; then
     echo "maven 未安装，正在安装 maven..."
 
     wget -P /usr/local/src/ https://archive.apache.org/dist/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz --no-check-certificate
@@ -227,17 +227,17 @@ chmod +x /usr/local/bin/cicd
 
 cat > $path/build_info << EOF
 ################################################################
-#                            内容说明                           #
-# IP: $ip                                                      #
-# gitlabPort: $gitlabPort                                      #
-# gitlabSshPort: $gitlabSshPort                                #
-# jenkinsPort: $jenkinsPort                                    #
-# nexusPort: $nexusPort                                        #
-# gitlab访问: http://$ip:$gitlabPort 或者 http://gitlab.com     #
-# jenkins访问: http://$ip:$jenkinsPort 或者 http://jenkins.com  #
-# nexus访问: http://$ip:$nexusPort 或者 http://nexus.com        #
-# 启动/关闭快捷命令 cicd up/down                                  # 
-# docker-compose.yml位置: $path/docker-compose.yml              # 
+                            内容说明                           
+ IP: $ip                                                      
+ gitlabPort: $gitlabPort                                      
+ gitlabSshPort: $gitlabSshPort                                
+ jenkinsPort: $jenkinsPort                                    
+ nexusPort: $nexusPort                                        
+ gitlab访问: http://$ip:$gitlabPort 或者 http://gitlab.com     
+ jenkins访问: http://$ip:$jenkinsPort 或者 http://jenkins.com  
+ nexus访问: http://$ip:$nexusPort 或者 http://nexus.com        
+ 启动/关闭快捷命令 cicd up/down                                  
+ docker-compose.yml位置: $path/docker-compose.yml              
 #################################################################
 EOF
 
