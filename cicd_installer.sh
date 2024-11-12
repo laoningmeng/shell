@@ -1,6 +1,6 @@
 #/bin/bash
 
-ip=$(ip addr show | grep -w "inet" | grep -v "127.0.0.1" | awk '{print $2}' | cut -d/ -f1)
+ip=$(ip addr show | grep -w "inet" | grep -v "127.0.0.1" | grep -E "192\.168\..*" | awk '{print $2}' | cut -d/ -f1 | head -n 1)
 read -p "请输入安装位置（绝对路径, 默认/root）: " path
 if [ -z "$path" ]; then
   path="/root"
