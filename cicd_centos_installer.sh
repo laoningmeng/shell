@@ -29,6 +29,8 @@ chmod 777 $path/gitlab
 mkdir $path/jenkins
 chmod 777 $path/jenkins
 
+# 关闭防火墙
+systemctl stop firewalld
 
 echo "#########################################"
 echo "#         1.安装java                     #"
@@ -162,7 +164,6 @@ echo "#         6.安装docker-compose.yml       #"
 echo "#########################################"
 
 cat > $path/docker-compose.yml << EOF
-version: '3'
 services:
   nexus:
     image: sonatype/nexus3
