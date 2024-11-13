@@ -22,6 +22,13 @@ if [ -z "$nexusPort" ]; then
   nexusPort=8002
 fi
 
+mkdir $path/nexus
+chmod 777 $path/nexus
+mkdir $path/gitlab
+chmod 777 $path/gitlab
+mkdir $path/jenkins
+chmod 777 $path/jenkins
+
 
 echo "#########################################"
 echo "#         1.安装java                     #"
@@ -170,6 +177,7 @@ services:
       - $path/nexus:/nexus-data
   jenkins:
     image: jenkins/jenkins
+    container_name: jenkins
     ports:
       - $jenkinsPort:8080
       - 50000:50000
